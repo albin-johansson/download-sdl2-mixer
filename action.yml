@@ -24,25 +24,25 @@ runs:
   steps:
     - name: Download sources
       shell: powershell
-      run: Invoke-WebRequest -Uri "https://www.libsdl.org/projects/SDL_mixer/release/SDL_mixer-devel-${{inputs.version}}-VC.zip" `
-                             -OutFile ${{inputs.sources_destination}}/SDL_mixer-devel-${{inputs.version}}-VC.zip
+      run: Invoke-WebRequest -Uri "https://www.libsdl.org/projects/SDL_mixer/release/SDL2_mixer-devel-${{inputs.version}}-VC.zip" `
+                             -OutFile ${{inputs.sources_destination}}/SDL2_mixer-devel-${{inputs.version}}-VC.zip
 
     - name: Unzip sources
       shell: cmd
       run: |
         cd ${{inputs.sources_destination}}
-        7z x -y SDL_mixer-devel-${{inputs.version}}-VC.zip
-        del SDL_mixer-devel-${{inputs.version}}-VC.zip
+        7z x -y SDL2_mixer-devel-${{inputs.version}}-VC.zip
+        del SDL2_mixer-devel-${{inputs.version}}-VC.zip
 
     - name: Download runtime binaries
       shell: powershell
-      run: Invoke-WebRequest -Uri "https://www.libsdl.org/projects/SDL_mixer/release/SDL_mixer-${{inputs.version}}-win32-x64.zip" `
-                             -OutFile ${{inputs.binaries_destination}}/SDL_mixer-${{inputs.version}}-win32-x64.zip
+      run: Invoke-WebRequest -Uri "https://www.libsdl.org/projects/SDL_mixer/release/SDL2_mixer-${{inputs.version}}-win32-x64.zip" `
+                             -OutFile ${{inputs.binaries_destination}}/SDL2_mixer-${{inputs.version}}-win32-x64.zip
 
     - name: Unzip runtime binaries archive
       shell: cmd
       run: |
         cd ${{inputs.binaries_destination}}
-        7z x -y SDL_mixer-${{inputs.version}}-win32-x64.zip
-        del SDL_mixer-${{inputs.version}}-win32-x64.zip
+        7z x -y SDL2_mixer-${{inputs.version}}-win32-x64.zip
+        del SDL2_mixer-${{inputs.version}}-win32-x64.zip
         dir
