@@ -1,0 +1,19 @@
+name: Test
+
+on: [ push, pull_request ]
+
+jobs:
+  test:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Make directories
+        run: mkdir bin
+        shell: cmd
+
+      - name: Download SDL2_mixer
+        uses: albin-johansson/download-sdl2-mixer@v0.1.0
+        with:
+          sources_destination: .
+          binaries_destination: bin
