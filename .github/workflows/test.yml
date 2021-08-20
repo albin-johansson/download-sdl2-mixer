@@ -13,7 +13,7 @@ jobs:
         shell: cmd
 
       - name: Download SDL2_mixer
-        uses: albin-johansson/download-sdl2-mixer@v0.1.0
+        uses: albin-johansson/download-sdl2-mixer@v0.2.0
         with:
           sources_destination: .
           binaries_destination: bin
